@@ -1,16 +1,15 @@
 import { Link } from 'wouter'
+import { CreateIcon, EnviarIcon } from '../../../icons'
 
 export function List () {
   const allLinks = [
     {
+      icon: CreateIcon,
       path: '/',
       text: 'Agregar numeros'
     },
     {
-      path: '/configurar',
-      text: 'Configurar mensaje'
-    },
-    {
+      icon: EnviarIcon,
       path: '/enviar',
       text: 'Enviar'
     }
@@ -23,7 +22,10 @@ export function List () {
         allLinks.map((link, index) => {
           return (
             <li key={index}>
-              <Link to={link.path} className='text-white py-4 block w-full  hover:bg-[#918cf2] duration-300  px-2 rounded-md'>{link.text}</Link>
+              <Link to={link.path} className='text-white py-4  w-full  duration-300  px-2 rounded-md fill-white flex gap-2  focus:bg-[#918cf2]'>
+                <link.icon />
+                {link.text}
+              </Link>
             </li>
           )
         })

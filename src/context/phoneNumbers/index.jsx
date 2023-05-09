@@ -4,13 +4,10 @@ export const PhoneContext = React.createContext()
 
 export function PhoneContextProvider ({ children }) {
   const [phones, setPhones] = useState([])
-  const [message, setMessage] = useState('')
 
   const globalState = {
     phones,
-    setPhones,
-    message,
-    setMessage
+    setPhones
   }
 
   return (

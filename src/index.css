@@ -9,3 +9,10 @@ body{
 #root{
     @apply ml-[300px] p-3
 }
+
+.activate{
+    background-color: red;
+}
+.desactivate{
+    background-color: green;
+}
