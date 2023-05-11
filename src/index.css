@@ -3,16 +3,12 @@
 @tailwind utilities;
 
 body{
-    @apply bg-[#0f1116]
+    padding: 20px;
+    @apply bg-[#fbf7f4]
 }
 
 #root{
-    @apply ml-[300px] p-3
-}
-
-.activate{
-    background-color: red;
-}
-.desactivate{
-    background-color: green;
+    height: calc(100vh - 40px);
+    border-radius: 10px;
+    @apply ml-[300px] bg-white
 }

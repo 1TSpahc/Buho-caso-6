@@ -22,7 +22,7 @@ export function List () {
         allLinks.map((link, index) => {
           return (
             <li key={index}>
-              <Link to={link.path} className='text-white py-4  w-full  duration-300  px-2 rounded-md fill-white flex gap-2  focus:bg-[#918cf2]'>
+              <Link to={link.path} className='text-black py-4  w-full  duration-300  px-2 rounded-md fill-black flex gap-2  focus:bg-[#eee6e3] '>
                 <link.icon />
                 {link.text}
               </Link>

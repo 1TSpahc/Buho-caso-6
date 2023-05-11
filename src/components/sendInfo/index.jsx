@@ -3,7 +3,7 @@ import { usePhonesNumberContext } from '../../hooks/usePhonesNumberContext'
 import { sendMessages } from '../../services'
 import { Notification } from '../notification'
 import { Ring } from '@uiball/loaders'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
 export function SendInfo () {
   const { phones } = usePhonesNumberContext()
@@ -25,7 +25,7 @@ export function SendInfo () {
       setAlert(true)
 
       setTimeout(() => {
-        resolve('hello')
+        resolve(sendMessages(clientPhone))
       }, 10000)
     })
   }
@@ -39,8 +39,8 @@ export function SendInfo () {
   const sendMassMessages = async () => {
     for (let index = 0; index < phones.length; index++) {
       const data = await executeFetch(phones[index])
-      console.log(data)
 
+      console.log(data)
       if (data) {
         const obj = {
           status: 'success',
@@ -55,11 +55,11 @@ export function SendInfo () {
   return (
     <>
       <form className='p-3' onSubmit={handleSubmit}>
-        <label htmlFor='none' className='block text-[#808389]'>
-          Se enviara el mensaje a los siguientes numeros ⬇:
-          <textarea className='block bg-[#13151b] py-3 px-2 outline-none  border-[3px] border-transparent my-6 resize-none w-[600px] duration-300 rounded-md placeholder:text-[#6a6c72de] focus:border-[#918cf2]' name='' cols='30' rows='10' readOnly value={JSON.stringify(phones)} />
+        <label htmlFor='none' className='block text-[#232323]'>
+          Se enviara el mensaje a los siguientes numeros:
+          <textarea className='block bg-[#ffffff] text-[#0d0d0d] py-3 px-2 outline-none  border-[3px] border-[#f9f7f5] my-6 resize-none w-[600px] duration-300 rounded-md placeholder:text-[#6a6c72de] focus:border-[#fbf7f4]' name='' cols='30' rows='10' readOnly value={JSON.stringify(phones)} />
         </label>
-        <button className=' text-[#808389] bg-[#13151b] hover:bg-[#918cf2] px-5 hover:text-[#e3e4e8]  py-2 rounded-md duration-300'>Enviar</button>
+        <button className='  bg-[#1f1f1f] px-5 text-[#e3e4e8]  py-2 rounded-md duration-300'>Enviar</button>
       </form>
       <AnimatePresence>
         {
